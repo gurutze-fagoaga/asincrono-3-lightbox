@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asincrono 3: Lightbox</title>
+    <script src="https://kit.fontawesome.com/92ec900005.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body class="body">
+    <div class="container" id="container">
+
+        <div id="content" class="content">
+            <img id="img" class="img" src="./img/imagen.webp" alt="Imagen">
+        </div>
+    
+        <div id="lightbox" class="lightbox">
+            <button id="lightbox__button" class="lightbox__button">
+                <i class="lightbox__button-icon fa-solid fa-xmark"></i>
+            </button>
+            <img alt="Imagen grande" id="lightbox__img" class="lightbox__img">
+        </div>
+
+    </div>
+
+
+
+    <script>
+
+        const container = document.querySelector("#container");
+        const imagen = container.querySelector("#img");
+        const lightbox = container.querySelector("#lightbox");
+        const btnCerrar = container.querySelector("#lightbox__button");
+        const imagenGrande = container.querySelector("#lightbox__img");
+
+        const btnCerrarHandler = () => lightbox.classList.remove("isActive");
+        const imagenHandler = () => {
+            lightbox.classList.add("isActive");
+            imagenGrande.src = imagen.src;
+        };
+
+        imagen.addEventListener("pointerdown", imagenHandler);
+        btnCerrar.addEventListener("pointerdown", btnCerrarHandler);
+
+
+    </script>
+</body>
+</html>
